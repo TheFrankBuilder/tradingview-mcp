@@ -110,6 +110,28 @@ npm link
 
 Then `tv status`, `tv quote`, `tv pine compile`, etc. work from anywhere.
 
+## Step 7: Set Up Local Trade Logging (Optional)
+
+`CLAUDE.md` instructs agents to log trade setups to `trade-log.md` in the
+repo root. This file holds real trading strategy content (entry
+conditions, invalidation levels, ticker-specific analysis) and is
+gitignored by default — it should never be committed.
+
+If the user wants to use this workflow:
+
+```bash
+cp trade-log.example.md trade-log.md
+```
+
+Confirm it's ignored: `git check-ignore trade-log.md` should print the
+path back (means it's ignored). If it prints nothing, do not proceed
+until `.gitignore` is fixed — that means the file would be committed.
+
+See `examples/` for sanitized, non-proprietary walkthroughs (an ETH/BTC
+ratio regime example and a BTC-vs-liquidity macro example) demonstrating
+the logging format and typical tool-call sequences before the user logs
+their own real setups.
+
 ## Troubleshooting
 
 | Problem | Solution |
@@ -127,3 +149,4 @@ Then `tv status`, `tv quote`, `tv pine compile`, etc. work from anywhere.
 - `CLAUDE.md` — Decision tree for which tool to use when (auto-loaded by Claude Code)
 - `README.md` — Full tool reference (78 MCP tools, 30 CLI commands)
 - `RESEARCH.md` — Research context and open questions
+- `examples/` — Sanitized use-case walkthroughs (relative-strength and macro-correlation examples) to learn the logging workflow before using it on real setups
