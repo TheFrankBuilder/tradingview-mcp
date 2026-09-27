@@ -5,3 +5,7 @@ temp_*
 *.log
 discovery-log.json
 rules.json
+
+# Real personal trade data — never commit. See trade-log.example.md for a
+# safe-to-commit template, and examples/ for sanitized use-case walkthroughs.
+trade-log.md
